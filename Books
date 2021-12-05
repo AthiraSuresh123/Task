@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+
+public class Books {
+	
+	int count=0;
+	
+	ArrayList<String> favoriteBooks = new ArrayList<String>();
+	
+	public void addFavoriteBook(String bookName)
+	{
+		if(bookName.contains("Great") || bookName.contains("great"))
+		{
+			bookName=null;
+		}
+		else
+		{
+			favoriteBooks.add(bookName);
+			count++;
+		}
+	}
+	
+	public void printFavoriteBooks()
+	{
+		
+		System.out.println("FAVORITE BOOKS: "+count);
+		
+		for(String s:favoriteBooks)
+		{
+			System.out.println(s);
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		Books obj = new Books();
+		
+		obj.addFavoriteBook("The Alchemist");
+		obj.addFavoriteBook("The Great Gatsby");
+		obj.addFavoriteBook("The Book Thief");
+		obj.addFavoriteBook("The great kapok tree");
+		obj.addFavoriteBook("The Fault In Our Stars");
+		
+		obj.printFavoriteBooks();
+
+	}
+
+}
