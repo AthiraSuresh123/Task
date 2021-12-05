@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+
+public class Items2 {
+
+	public static void main(String[] args) {
+		
+		Items i1 = new Items(1,"Shirt",20000,"Ajio");
+		Items i2 = new Items(2,"Shoes",10000,"Trickers");
+		Items i3 = new Items(3,"Shirt",25000,"Allen Solly");
+		Items i4 = new Items(4,"Shoes",5000,"Tredair");
+		Items i5 = new Items(5,"Jeans",10000,"Tiger of Sweden");
+		
+		List<Items> list = new ArrayList<Items>();
+		
+		list.add(i1);
+		list.add(i2);
+		list.add(i3);
+		list.add(i4);
+		list.add(i5);
+		
+		list.stream()
+				.filter(Items -> Items.getBrand().startsWith("T"))
+				.forEach(Items -> System.out.println(Items));
+		
+		System.out.println(" ");
+		
+		list.stream()
+				.sorted(Comparator.comparing(Items::getPrice).reversed())
+				.forEach(Items -> System.out.println(Items));
+	}
+}
